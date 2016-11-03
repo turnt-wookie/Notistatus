@@ -7,4 +7,6 @@ client/index.html
 dist
 /server/config/local.env.js
 npm-debug.log
+yarn-error.log
 coverage
+dev.sqlite

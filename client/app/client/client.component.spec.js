@@ -1,14 +1,14 @@
 'use strict';
 
-describe('Controller: ClientCtrl', function() {
+describe('Component: ClientComponent', function() {
   // load the controller's module
   beforeEach(module('notistatusApp.client'));
 
-  var ClientCtrl;
+  var ClientComponent;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller) {
-    ClientCtrl = $controller('ClientCtrl', {});
+  beforeEach(inject(function($componentController) {
+    ClientComponent = $componentController('client', {});
   }));
 
   it('should ...', function() {

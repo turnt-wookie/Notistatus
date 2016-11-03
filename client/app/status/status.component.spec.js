@@ -1,14 +1,14 @@
 'use strict';
 
-describe('Controller: StatusCtrl', function() {
+describe('Component: StatusComponent', function() {
   // load the controller's module
   beforeEach(module('notistatusApp.status'));
 
-  var StatusCtrl;
+  var StatusComponent;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller) {
-    StatusCtrl = $controller('StatusCtrl', {});
+  beforeEach(inject(function($componentController) {
+    StatusComponent = $componentController('status', {});
   }));
 
   it('should ...', function() {
