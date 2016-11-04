@@ -17,24 +17,30 @@ import {Status} from '../../sqldb';
 
 function message(client, status){
 
-  var accountSid, authToken, accountNumber;
+  new Promise((resolve, reject) => {
+    
+    var accountSid = "ACd733f9a21c372f72abc2c018df579cdd", 
+    authToken = "2cba7f85b121fcd623965f4996c4a2f2", 
+    accountNumber = "+14244887859";
 
-  var twilio_client = new twilio.RestClient(accountSid, authToken);
+    var twilio_client = new twilio.RestClient(accountSid, authToken);
 
-  var clientp = Client.findOne({where: {_id : client}});
-  var statusp = Status.findOne({where: {_id : status}});
+    var clientp = Client.findOne({where: {_id : client}});
+    var statusp = Status.findOne({where: {_id : status}});
 
-  Promise.all([clientp, statusp]).then((result) =>{
+    return Promise.all([clientp, statusp]).then((result) =>{
 
-    twilio_client.messages.create({
-      body: result[1].info,
-      to: result[0].phone,  // Text this number
-      from: accountNumber // From a valid Twilio number
-    }, function(err, message) {
-      res.status(200).json(message)
+      return twilio_client.messages.create({
+        body: result[1].info,
+        to: result[0].phone,  // Text this number
+        from: accountNumber // From a valid Twilio number
+      }, function(err, message) {
+
+        if(err) return reject(err);
+        if(message) return resolve(message);
+      });
     });
   });
-
 
 
 
@@ -105,6 +111,12 @@ function handleError(res, statusCode) {
 // Gets a list of Clients
 export function index(req, res) {
   return Client.findAll(req.options)
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function sendMessage(req, res) {
+  return message(req.param.client_id, req.param.status_id)
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
