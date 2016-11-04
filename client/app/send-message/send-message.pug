@@ -1,0 +1,13 @@
+.container: .row: .col-md-8.col-md-offset-2
+
+	form(nf-submit='ctrl.sendMessage()')
+		.form-group
+			legend Mensaje a enviar a {{ctrl.client.name}}
+		.form-group
+			label.sr-only(for="") label
+			select(ng-model='ctrl.status').form-control 
+				option(value="") -- Selecciona uno --
+				option(value="{{status._id}}", ng-repeat="status in ctrl.statuses") {{status.name}}
+		.form-group
+			.col-sm-6.col-sm-offset-3
+				button.btn.btn-primary.btn-block(type="submit") Enviar

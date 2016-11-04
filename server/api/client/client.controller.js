@@ -116,7 +116,7 @@ export function index(req, res) {
 }
 
 export function sendMessage(req, res) {
-  return message(req.param.client_id, req.param.status_id)
+  return message(req.body.client_id, req.body.status_id)
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

@@ -37,6 +37,9 @@ import ClientNewComponent from './client-new/client-new.component';
 import ClientEditComponent from './client-edit/client-edit.component';
 import ClientViewComponent from './client-view/client-view.component';
 
+import SendMessageComponent from './send-message/send-message.component';
+
+
 import './app.less';
 
 angular.module('notistatusApp', [ngCookies, ngResource, ngSanitize, uiRouter, uiBootstrap, _Auth,
@@ -50,7 +53,8 @@ angular.module('notistatusApp', [ngCookies, ngResource, ngSanitize, uiRouter, ui
     ClientComponent,
     ClientNewComponent,
     ClientEditComponent,
-    ClientViewComponent
+    ClientViewComponent,
+    SendMessageComponent
   ])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {

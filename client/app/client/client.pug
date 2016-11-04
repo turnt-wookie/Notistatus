@@ -12,3 +12,7 @@
         td {{client.name}}
         td {{client.phone}}
         td
+          a(ui-sref="client-edit({ id: client._id })"): span.glyphicon.glyphicon-pencil
+          a(ui-sref="client-view({ id: client._id })"): span.glyphicon.glyphicon-eye-open
+          a(ui-sref="send-message({ id: client._id })"): span.glyphicon.glyphicon-envelope
+          //-a(ui-sref=""): span.glyphicon.glyphicon-trash

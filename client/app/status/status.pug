@@ -1,5 +1,5 @@
 .container: .row: .col-md-12.text-right(style="margin-bottom:30px;")
-  a.btn.btn-primary(ui-ref="client-new") Nuevo Statu
+  a.btn.btn-primary(ui-ref="status-new") Nuevo Status
 .container: .row: .col-md-12
   table.table.table-bordered.table-hover
     thead
@@ -8,7 +8,10 @@
         th.text-center Mensaje
         th.text-center Opciones
     tbody
-      tr(ng-repeat="client in ctrl.clients")
-        td {{client.name}}
-        td {{client.info}}
+      tr(ng-repeat="status in ctrl.statuses")
+        td {{status.name}}
+        td {{status.info}}
         td
+          a(ui-sref="status-edit({ id: status._id })"): span.glyphicon.glyphicon-pencil
+          a(ui-sref="status-view({ id: status._id })"): span.glyphicon.glyphicon-eye-open
+          //-a(ui-sref=""): span.glyphicon.glyphicon-trash

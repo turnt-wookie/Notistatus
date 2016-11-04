@@ -16,4 +16,7 @@ router.put('/:id', auth.isAuthenticated(), controller.upsert);
 router.patch('/:id', auth.isAuthenticated(), controller.patch);
 router.delete('/:id', auth.isAuthenticated(), controller.destroy);
 
+
+router.post('/send_message', auth.isAuthenticated(), controller.sendMessage);
+
 module.exports = router;

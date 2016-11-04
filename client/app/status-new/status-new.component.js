@@ -7,7 +7,8 @@ import routes from './status-new.routes';
 
 export class StatusNewComponent {
   /*@ngInject*/
-  constructor(Status, $stateParams) {
+  constructor(Status, $stateParams, $state) {
+    this.$state = $state;
     this.status = new Status();
   }
 
@@ -18,7 +19,7 @@ export class StatusNewComponent {
   }
 }
 
-StatusNewComponent.$inject = ['Status', '$stateParams'];
+StatusNewComponent.$inject = ['Status', '$stateParams', '$state'];
 
 
 export default angular.module('notistatusApp.status-new', [uiRouter])

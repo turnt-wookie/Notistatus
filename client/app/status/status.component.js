@@ -8,7 +8,7 @@ import routes from './status.routes';
 export class StatusComponent {
   /*@ngInject*/
   constructor(Status) {
-    this.status = Status.all();
+    this.statuses = Status.all();
   }
 }
 

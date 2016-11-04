@@ -8,7 +8,8 @@ export function clientService($resource) {
         get: { method: 'GET', isArray: false},
         create: { method: 'POST' },
         update: { method: 'PATCH' },
-        delete: { method: 'DELETE' }
+        delete: { method: 'DELETE' },
+        send: { method: 'POST' , params: {id: 'send_message'}}
     });
 }
 
