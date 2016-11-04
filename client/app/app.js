@@ -25,10 +25,13 @@ import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 
+import StatusService from './services/status/status.service';
 import StatusComponent from './status/status.component';
 import StatusNewComponent from './status-new/status-new.component';
 import StatusEditComponent from './status-edit/status-edit.component';
 import StatusViewComponent from './status-view/status-view.component';
+
+import ClientService from './services/client/client.service';
 import ClientComponent from './client/client.component';
 import ClientNewComponent from './client-new/client-new.component';
 import ClientEditComponent from './client-edit/client-edit.component';
@@ -38,10 +41,12 @@ import './app.less';
 
 angular.module('notistatusApp', [ngCookies, ngResource, ngSanitize, uiRouter, uiBootstrap, _Auth,
     account, admin, navbar, footer, main, constants, util,
+    StatusService,
     StatusComponent,
     StatusNewComponent,
     StatusEditComponent,
     StatusViewComponent,
+    ClientService,
     ClientComponent,
     ClientNewComponent,
     ClientEditComponent,

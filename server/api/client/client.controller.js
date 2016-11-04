@@ -11,7 +11,35 @@
 'use strict';
 
 import jsonpatch from 'fast-json-patch';
+import twilio from 'twilio';
 import {Client} from '../../sqldb';
+import {Status} from '../../sqldb';
+
+function message(client, status){
+
+  var accountSid, authToken, accountNumber;
+
+  var twilio_client = new twilio.RestClient(accountSid, authToken);
+
+  var clientp = Client.findOne({where: {_id : client}});
+  var statusp = Status.findOne({where: {_id : status}});
+
+  Promise.all([clientp, statusp]).then((result) =>{
+
+    twilio_client.messages.create({
+      body: result[1].info,
+      to: result[0].phone,  // Text this number
+      from: accountNumber // From a valid Twilio number
+    }, function(err, message) {
+      res.status(200).json(message)
+    });
+  });
+
+
+
+
+  
+}
 
 function extend(target) {
     var sources = [].slice.call(arguments, 1);
@@ -35,14 +63,12 @@ function respondWithResult(res, statusCode) {
 }
 
 function patchUpdates(patches) {
-  return function(entity) {
-    try {
-      jsonpatch.apply(entity, patches, /*validate*/ true);
-    } catch(err) {
-      return Promise.reject(err);
-    }
 
-    return entity.save();
+  return function(entity) {
+    return entity.updateAttributes(patches)
+      .then(updated => {
+        return updated;
+      });
   };
 }
 
@@ -119,9 +145,7 @@ export function patch(req, res) {
     delete req.body._id;
   }
 
-  var options = extend({ where: { _id: req.params.id } }, req.options);
-
-  return Client.find(options)
+  return Client.find({ where: { _id: req.params.id } })
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
     .then(respondWithResult(res))

@@ -1,0 +1,11 @@
+.container: .row: .col-md-12
+	form(ng-submit="ctrl.save()")
+		legend Nuevo Status
+		.form-group
+			label(for="") Nombre
+			input.form-control(type="text", ng-model="ctrl.status.name")
+		.form-group
+			label(for="") Mensaje
+			input.form-control(type="tel", ng-model="ctrl.status.info")
+
+		button.btn.btn-primary(type="submit") Salvar 

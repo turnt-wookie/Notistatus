@@ -7,16 +7,23 @@ import routes from './status-edit.routes';
 
 export class StatusEditComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'Hello';
+  constructor(Status, $stateParams) {
+    this.status = Status.get($stateParams);
+  }
+  save(){
+    this.status.$save(() => {
+      this.$state.go('status');
+    });
   }
 }
+
+StatusEditComponent.$inject = ['Status', '$stateParams'];
 
 export default angular.module('notistatusApp.status-edit', [uiRouter])
   .config(routes)
   .component('statusEdit', {
     template: require('./status-edit.pug'),
     controller: StatusEditComponent,
-    controllerAs: 'statusEditCtrl'
+    controllerAs: 'ctrl'
   })
   .name;

@@ -1,0 +1,17 @@
+.container: .row: .col-md-12
+	form(ng-submit="ctrl.save()")
+		legend Nuevo Cliente
+		.form-group
+			label(for="") Nombre
+			input.form-control(type="text", ng-model="ctrl.client.name")
+		.form-group
+			label(for="") Telefono
+			input.form-control(type="tel", ng-model="ctrl.client.phone")
+		.form-group
+			label(for="") Email
+			input.form-control(type="email", ng-model="ctrl.client.email")
+		.form-group
+			label(for="") Dirección
+			input.form-control(type="text", ng-model="ctrl.client.address")
+
+		button.btn.btn-primary(type="submit") Salvar 

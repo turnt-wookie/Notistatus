@@ -3,15 +3,15 @@ const angular = require('angular');
 
 /*@ngInject*/
 export function clientService($resource) {
-	return $resource('/api/status/:id/:controller', {}, {
+	return $resource('/api/clients/:id/:controller', {id:'@_id'}, {
         all: { method: 'GET', isArray: true },
         get: { method: 'GET', isArray: false},
         create: { method: 'POST' },
-        update: { method: 'PUT' },
+        update: { method: 'PATCH' },
         delete: { method: 'DELETE' }
     });
 }
 
-export default angular.module('notistatusApp', [])
-  .service('client', clientService)
+export default angular.module('notistatusApp.clients', [])
+  .service('Client', clientService)
   .name;

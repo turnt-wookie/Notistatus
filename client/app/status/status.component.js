@@ -7,16 +7,18 @@ import routes from './status.routes';
 
 export class StatusComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'Hello';
+  constructor(Status) {
+    this.status = Status.all();
   }
 }
+
+StatusComponent.$inject = ['Status'];
 
 export default angular.module('notistatusApp.status', [uiRouter])
   .config(routes)
   .component('status', {
     template: require('./status.pug'),
     controller: StatusComponent,
-    controllerAs: 'statusCtrl'
+    controllerAs: 'ctrl'
   })
   .name;

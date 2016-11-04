@@ -1,0 +1,14 @@
+.container: .row: .col-md-12.text-right(style="margin-bottom:30px;")
+  a.btn.btn-primary(ui-ref="client-new") Nuevo Statu
+.container: .row: .col-md-12
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th.text-center Nombre
+        th.text-center Mensaje
+        th.text-center Opciones
+    tbody
+      tr(ng-repeat="client in ctrl.clients")
+        td {{client.name}}
+        td {{client.info}}
+        td

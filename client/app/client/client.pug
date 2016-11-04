@@ -1,114 +1,14 @@
-.container-fluid.display-table
-  .row.display-table-row
-    #navigation.col-md-2.col-sm-1.hidden-xs.display-table-cell.v-align.box
-      .logo
-        a(hef='home.html')
-          img.hidden-xs.hidden-sm(src='http://jskrishna.com/work/merkury/images/logo.png', alt='merkery_logo')
-          img.visible-xs.visible-sm.circle-logo(src='http://jskrishna.com/work/merkury/images/circle-logo.png', alt='merkery_logo')
-      .navi
-        ul
-          li.active
-            a(href='#')
-              i.fa.fa-home(aria-hidden='true')
-              span.hidden-xs.hidden-sm Home
-          li
-            a(href='#')
-              i.fa.fa-tasks(aria-hidden='true')
-              span.hidden-xs.hidden-sm Workflow
-          li
-            a(href='#')
-              i.fa.fa-bar-chart(aria-hidden='true')
-              span.hidden-xs.hidden-sm Statistics
-          li
-            a(href='#')
-              i.fa.fa-user(aria-hidden='true')
-              span.hidden-xs.hidden-sm Calender
-          li
-            a(href='#')
-              i.fa.fa-calendar(aria-hidden='true')
-              span.hidden-xs.hidden-sm Users
-          li
-            a(href='#')
-              i.fa.fa-cog(aria-hidden='true')
-              span.hidden-xs.hidden-sm Setting
-    .col-md-10.col-sm-11.display-table-cell.v-align
-      // <button type="button" class="slide-toggle">Slide Toggle</button>
-      .row
-        header
-          .col-md-7
-            nav.navbar-default.pull-left
-              .navbar-header
-                button.navbar-toggle.collapsed(type='button', data-toggle='offcanvas', data-target='#side-menu', aria-expanded='false')
-                  span.sr-only Toggle navigation
-                  span.icon-bar
-                  span.icon-bar
-                  span.icon-bar
-            .search.hidden-xs.hidden-sm
-              input#search(type='text', placeholder='Search')
-          .col-md-5
-            .header-rightside
-              ul.list-inline.header-top.pull-right
-                li.hidden-xs
-                  a.add-project(href='#', data-toggle='modal', data-target='#add_project') Add Project
-                li
-                  a(href='#')
-                    i.fa.fa-envelope(aria-hidden='true')
-                li
-                  a.icon-info(href='#')
-                    i.fa.fa-bell(aria-hidden='true')
-                    span.label.label-primary 3
-                li.dropdown
-                  a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    img(src='http://jskrishna.com/work/merkury/images/user-pic.jpg', alt='user')
-                    b.caret
-                  ul.dropdown-menu
-                    li
-                      .navbar-content
-                        span JS Krishna
-                        p.text-muted.small
-                          | me@jskrishna.com
-                        .divider
-                        a.view.btn-sm.active(href='#') View Profile
-      .user-dashboard
-        h1 Hello, JS
-        .row
-          .col-md-5.col-sm-5.col-xs-12.gutter
-            .sales
-              h2 Your Sale
-              .btn-group
-                button.btn.btn-secondary.btn-lg.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  span Period:
-                  |  Last Year
-                .dropdown-menu
-                  a(href='#') 2012
-                  a(href='#') 2014
-                  a(href='#') 2015
-                  a(href='#') 2016
-          .col-md-7.col-sm-7.col-xs-12.gutter
-            .sales.report
-              h2 Report
-              .btn-group
-                button.btn.btn-secondary.btn-lg.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  span Period:
-                  |  Last Year
-                .dropdown-menu
-                  a(href='#') 2012
-                  a(href='#') 2014
-                  a(href='#') 2015
-                  a(href='#') 2016
-// Modal
-#add_project.modal.fade(role='dialog')
-  .modal-dialog
-    // Modal content
-    .modal-content
-      .modal-header.login-header
-        button.close(type='button', data-dismiss='modal') ×
-        h4.modal-title Add Project
-      .modal-body
-        input(type='text', placeholder='Project Title', name='name')
-        input(type='text', placeholder='Post of Post', name='mail')
-        input(type='text', placeholder='Author', name='passsword')
-        textarea(placeholder='Desicrption')
-      .modal-footer
-        button.cancel(type='button', data-dismiss='modal') Close
-        button.add-project(type='button', data-dismiss='modal') Save
+.container: .row: .col-md-12.text-right(style="margin-bottom:30px;")
+  a.btn.btn-primary(ui-ref="client-new") Nuevo Cliente
+.container: .row: .col-md-12
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th.text-center Cliente
+        th.text-center Teléfono
+        th.text-center Opciones
+    tbody
+      tr(ng-repeat="client in ctrl.clients")
+        td {{client.name}}
+        td {{client.phone}}
+        td

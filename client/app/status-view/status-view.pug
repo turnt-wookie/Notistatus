@@ -1,0 +1,9 @@
+.container: .row: .col-md-12
+	form()
+		legend Editar Status
+		.form-group
+			label(for="") Nombre
+			input.form-control(type="text", ng-model="ctrl.status.name", disabled)
+		.form-group
+			label(for="") Mensaje
+			input.form-control(type="tel", ng-model="ctrl.status.info", disabled)

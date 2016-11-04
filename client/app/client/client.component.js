@@ -7,16 +7,18 @@ import routes from './client.routes';
 
 export class ClientComponent {
   /*@ngInject*/
-  constructor() {
-    this.message = 'Hello';
+  constructor(Client) {
+    this.clients = Client.all();
   }
 }
+
+ClientComponent.$inject = ['Client'];
 
 export default angular.module('notistatusApp.client', [uiRouter])
   .config(routes)
   .component('client', {
     template: require('./client.pug'),
     controller: ClientComponent,
-    controllerAs: 'clientCtrl'
+    controllerAs: 'ctrl'
   })
   .name;

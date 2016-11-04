@@ -1,0 +1,15 @@
+.container: .row: .col-md-12
+	form(ng-disabled)
+		legend Ver Cliente
+		.form-group
+			label(for="") Nombre
+			input.form-control(type="text", ng-model="ctrl.client.name", disabled)
+		.form-group
+			label(for="") Telefono
+			input.form-control(type="tel", ng-model="ctrl.client.phone", disabled)
+		.form-group
+			label(for="") Email
+			input.form-control(type="email", ng-model="ctrl.client.email", disabled)
+		.form-group
+			label(for="") Dirección
+			input.form-control(type="text", ng-model="ctrl.client.address", disabled)

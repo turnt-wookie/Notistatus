@@ -35,13 +35,10 @@ function respondWithResult(res, statusCode) {
 
 function patchUpdates(patches) {
   return function(entity) {
-    try {
-      jsonpatch.apply(entity, patches, /*validate*/ true);
-    } catch(err) {
-      return Promise.reject(err);
-    }
-
-    return entity.save();
+    return entity.updateAttributes(patches)
+      .then(updated => {
+        return updated;
+      });
   };
 }
 
