@@ -17,10 +17,10 @@ import {Status} from '../../sqldb';
 
 function message(client, status){
 
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     
     var accountSid = "ACd733f9a21c372f72abc2c018df579cdd", 
-    authToken = "2cba7f85b121fcd623965f4996c4a2f2", 
+    authToken = process.env.TWILIO, 
     accountNumber = "+14244887859";
 
     var twilio_client = new twilio.RestClient(accountSid, authToken);

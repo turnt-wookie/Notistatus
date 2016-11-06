@@ -1,5 +1,5 @@
 .container: .row: .col-md-12.text-right(style="margin-bottom:30px;")
-  a.btn.btn-primary(ui-ref="client-new") Nuevo Cliente
+  a.btn.btn-primary(ui-sref="client-new") Nuevo Cliente
 .container: .row: .col-md-12
   table.table.table-bordered.table-hover
     thead
@@ -12,7 +12,8 @@
         td {{client.name}}
         td {{client.phone}}
         td
-          a(ui-sref="client-edit({ id: client._id })"): span.glyphicon.glyphicon-pencil
-          a(ui-sref="client-view({ id: client._id })"): span.glyphicon.glyphicon-eye-open
-          a(ui-sref="send-message({ id: client._id })"): span.glyphicon.glyphicon-envelope
+          ul.list-inline
+            li: a(ui-sref="client-edit({ id: client._id })"): span.glyphicon.glyphicon-pencil
+            li: a(ui-sref="client-view({ id: client._id })"): span.glyphicon.glyphicon-eye-open
+            li: a(ui-sref="send-message({ id: client._id })"): span.glyphicon.glyphicon-envelope
           //-a(ui-sref=""): span.glyphicon.glyphicon-trash

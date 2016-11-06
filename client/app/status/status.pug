@@ -1,5 +1,5 @@
 .container: .row: .col-md-12.text-right(style="margin-bottom:30px;")
-  a.btn.btn-primary(ui-ref="status-new") Nuevo Status
+  a.btn.btn-primary(ui-sref="status-new") Nuevo Status
 .container: .row: .col-md-12
   table.table.table-bordered.table-hover
     thead
@@ -12,6 +12,7 @@
         td {{status.name}}
         td {{status.info}}
         td
-          a(ui-sref="status-edit({ id: status._id })"): span.glyphicon.glyphicon-pencil
-          a(ui-sref="status-view({ id: status._id })"): span.glyphicon.glyphicon-eye-open
+          ul.list-inline
+            li: a(ui-sref="status-edit({ id: status._id })"): span.glyphicon.glyphicon-pencil
+            li: a(ui-sref="status-view({ id: status._id })"): span.glyphicon.glyphicon-eye-open
           //-a(ui-sref=""): span.glyphicon.glyphicon-trash

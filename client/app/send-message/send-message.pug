@@ -1,6 +1,6 @@
 .container: .row: .col-md-8.col-md-offset-2
 
-	form(nf-submit='ctrl.sendMessage()')
+	form(ng-submit='ctrl.sendMessage()')
 		.form-group
 			legend Mensaje a enviar a {{ctrl.client.name}}
 		.form-group

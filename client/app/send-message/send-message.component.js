@@ -10,10 +10,11 @@ export class SendMessageComponent {
   constructor($state, $stateParams, Client, Status) {
     this.client = Client.get($stateParams);
     this.statuses = Status.all();
+    this.Client = Client;
   }
 
   sendMessage(){
-    Client.send({client_id: this.client._id,status_id: this.status._id })
+    this.Client.send({client_id: this.client._id, status_id: parseInt(this.status) })
   }
 }
 
