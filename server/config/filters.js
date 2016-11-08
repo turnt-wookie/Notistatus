@@ -50,6 +50,7 @@ export function appendUser(req, res, next) {
   next();
 }
 
+
 /**
  *  Adds userId to the query
  */

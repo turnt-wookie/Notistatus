@@ -32,7 +32,7 @@ function message(client, status){
 
       return twilio_client.messages.create({
         body: result[1].info,
-        to: result[0].phone,  // Text this number
+        to: "+521"+result[0].phone,  // Text this number
         from: accountNumber // From a valid Twilio number
       }, function(err, message) {
 

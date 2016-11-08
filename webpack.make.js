@@ -51,6 +51,7 @@ module.exports = function makeWebpackConfig(options) {
 
                 'angular-ui-bootstrap',
                 'angular-ui-router',
+                'angular-sweetalert',
                 'lodash'
             ]
         };
@@ -194,6 +195,8 @@ module.exports = function makeWebpackConfig(options) {
             test: /\.less$/,
             loaders: ['style', 'css', 'less'],
             include: [
+            
+                path.resolve(__dirname, 'node_modules/bootstrap/less/*.less'),
                 path.resolve(__dirname, 'node_modules/bootstrap/less/*.less'),
                 path.resolve(__dirname, 'client/app/app.less')
             ]

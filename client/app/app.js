@@ -54,12 +54,15 @@ angular.module('notistatusApp', [ngCookies, ngResource, ngSanitize, uiRouter, ui
     ClientNewComponent,
     ClientEditComponent,
     ClientViewComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    'oitozero.ngSweetAlert'
   ])
   .config(routeConfig)
-  .run(function($rootScope, $location, Auth) {
+  .run(function($rootScope, $location, Auth, SweetAlert) {
     'ngInject';
     // Redirect to login if route requires auth and you're not logged in
+
+    SweetAlert.swal("Here's a message");
 
     $rootScope.$on('$stateChangeStart', function(event, next) {
       Auth.isLoggedIn(function(loggedIn) {

@@ -1,0 +1,15 @@
+{
+  "name": "notistatus",
+  "description": "",
+  "main": "server/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/turnt-wookie/Notistatus",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
