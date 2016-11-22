@@ -8,6 +8,7 @@ import ngSanitize from 'angular-sanitize';
 
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
+import ngSweetAlert from 'oitozero.ngSweetAlert';
 // import ngMessages from 'angular-messages';
 // import ngValidationMatch from 'angular-validation-match';
 
@@ -55,14 +56,12 @@ angular.module('notistatusApp', [ngCookies, ngResource, ngSanitize, uiRouter, ui
     ClientEditComponent,
     ClientViewComponent,
     SendMessageComponent,
-    'oitozero.ngSweetAlert'
+    ngSweetAlert
   ])
   .config(routeConfig)
-  .run(function($rootScope, $location, Auth, SweetAlert) {
+  .run(function($rootScope, $location, Auth) {
     'ngInject';
     // Redirect to login if route requires auth and you're not logged in
-
-    SweetAlert.swal("Here's a message");
 
     $rootScope.$on('$stateChangeStart', function(event, next) {
       Auth.isLoggedIn(function(loggedIn) {
