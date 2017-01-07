@@ -9,11 +9,11 @@ import * as policies from '../../config/filters';
 
 var router = new Router();
 
-router.get('/', auth.isAuthenticated(), policies.isOwner, controller.index);
-router.get('/:id', auth.isAuthenticated(), policies.isOwner, controller.show);
-router.post('/', auth.isAuthenticated(), policies.appendUser, controller.create);
-router.put('/:id', auth.isAuthenticated(), policies.appendUser, controller.upsert);
-router.patch('/:id', auth.isAuthenticated(), policies.appendUser, controller.patch);
-router.delete('/:id', auth.isAuthenticated(), policies.isOwner, controller.destroy);
+router.get('/', auth.isAuthenticated(),  controller.index);
+router.get('/:id', auth.isAuthenticated(),  controller.show);
+router.post('/', auth.isAuthenticated(),  controller.create);
+router.put('/:id', auth.isAuthenticated(),  controller.upsert);
+router.patch('/:id', auth.isAuthenticated(),  controller.patch);
+router.delete('/:id', auth.isAuthenticated(),  controller.destroy);
 
 module.exports = router;

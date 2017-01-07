@@ -16,4 +16,4 @@
             li: a(ui-sref="client-edit({ id: client._id })"): span.glyphicon.glyphicon-pencil
             li: a(ui-sref="client-view({ id: client._id })"): span.glyphicon.glyphicon-eye-open
             li: a(ui-sref="send-message({ id: client._id })"): span.glyphicon.glyphicon-envelope
-          //-a(ui-sref=""): span.glyphicon.glyphicon-trash
+            li: a(ng-click="ctrl.delete(client)"): span.glyphicon.glyphicon-trash

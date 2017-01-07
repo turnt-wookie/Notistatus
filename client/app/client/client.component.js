@@ -8,7 +8,12 @@ import routes from './client.routes';
 export class ClientComponent {
   /*@ngInject*/
   constructor(Client) {
-    this.clients = Client.all();
+    this.clients = Client.query();
+  }
+
+  delete(client) {
+    client.$remove();
+    this.clients.splice(this.clients.indexOf(client), 1);
   }
 }
 

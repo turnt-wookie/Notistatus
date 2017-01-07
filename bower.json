@@ -11,5 +11,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "ngSweetAlert": "angular-sweetalert#^1.1.2"
+  }
 }

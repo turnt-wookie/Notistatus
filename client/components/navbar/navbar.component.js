@@ -9,11 +9,11 @@ export class NavbarComponent {
     state: 'main',
     logged: false
   },{
-    title: 'Clients',
+    title: 'Clientes',
     state: 'client',
     logged: true
   },{
-    title: 'Status',
+    title: 'Estatus',
     state: 'status',
     logged: true
   }];
